@@ -2,6 +2,15 @@ To run the container
 # Dev
 docker container run --name react16-dev --publish 3000:3000 --rm -v $(PWD):/usr/src/app -v /usr/src/app/node_modules jduenas/react16:dev
 
+# Building the image for dev
+docker build --target build -t jduenas/react16:dev
+
+# Building the image for deployment
+docker build -t jduenas/angular8 .
+
+# Running PROD build
+docker container run --rm --name react16-web --publish 80:80 jduenas/react16:latest
+
 -------------
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
