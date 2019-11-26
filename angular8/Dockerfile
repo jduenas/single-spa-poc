@@ -1,10 +1,10 @@
-FROM node:erbium as build
+FROM node:erbium-alpine as build
 RUN npm install @angular/cli@8.3.19
-RUN mkdir /usr/src/app
+RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
-COPY package.json package.json
-RUN npm install 
-ENV PATH $PATH:/usr/src/app/node_modules/.bin/
+ENV PATH "$PATH:/usr/src/app/node_modules/.bin"
+COPY ["package.json", "package-lock.json", "./"]
+RUN npm install i
 EXPOSE 4200
 COPY . .
 CMD ng serve --host 0.0.0.0
