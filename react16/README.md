@@ -1,3 +1,8 @@
+To run the container
+# Dev
+docker container run --name react16-dev --publish 3000:3000 --rm -v $(PWD):/usr/src/app -v /usr/src/app/node_modules jduenas/react16:dev
+
+-------------
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
