@@ -1,14 +1,14 @@
 import { registerApplication, start } from 'single-spa'
 registerApplication(
   // Name of our single-spa application
-  'home',
+  'react',
   // loadingFunction
   () => { 
-    return System.import("navbar") 
+    return System.import("react") 
   },
   // activityFunction
   (location) => location.pathname === "" || 
     location.pathname === "/" || 
-    location.pathname.startsWith('/home')
+    location.pathname.startsWith('/react')
 );
 start();

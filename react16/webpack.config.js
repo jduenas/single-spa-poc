@@ -2,75 +2,58 @@
 const webpack = require('webpack')
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: path.resolve(__dirname, 'src/plugin.tsx'),
   output: {
-    filename: 'plugin.js',
+    filename: 'plugin.js',    
     library: 'plugin',
     libraryTarget: 'amd',
+    publicPath: "http:\/\/127.0.0.1:8080\/",
     path: path.resolve(__dirname, 'build'),
   },
   mode: 'production',
   module: {
     rules: [
       {
-        parser: { System: false }
-      },
-      { 
-        test: /\.tsx?$/, 
-        loader: 'awesome-typescript-loader'
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
       },
       {
-        test: /\.js?$/,
-        exclude: [path.resolve(__dirname, 'node_modules')],
-        loader: 'babel-loader',
+        test: /\.ts(x)?$/,
+        use: [
+          'awesome-typescript-loader'
+        ],
+        exclude: /node_modules/
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader'
+        ]
       },
       {
         test: /\.svg$/,
-        loader: 'svg-inline-loader'
-      },
-      {
-        test: /\.css$/,
-        exclude: [path.resolve(__dirname, 'node_modules'), /\.krem.css$/],
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              modules: true,
-              localIdentName: '[path][name]__[local]',
-            },
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              plugins() {
-                return [
-                  require('autoprefixer')
-                ];
-              },
-            },
-          },
-        ],
-      },
-      {
-        test: /\.css$/,
-        include: [path.resolve(__dirname, 'node_modules')],
-        exclude: [/\.krem.css$/],
-        use: ['style-loader', 'css-loader'],
+        use: 'file-loader'
       }
-    ],
+    ]
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js'],
-    modules: [__dirname, 'node_modules'],
+    extensions: [
+      '.tsx',
+      '.ts',
+      '.js'
+    ]
   },
   plugins: [
     new CleanWebpackPlugin()
   ],
-  // devtool: 'source-map',
+  devtool: 'source-map'
   // externals: [
   //   /^lodash$/,
   //   /^single-spa$/,
