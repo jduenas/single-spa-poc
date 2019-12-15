@@ -38,6 +38,12 @@
     "@types/react": "16.9.13",
     "@types/react-dom": "16.9.4",
     "@types/single-spa-react": "^2.8.3",
-    "react-app-rewired": "^2.1.5"
+    "awesome-typescript-loader": "^5.2.1",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.1.1",
+    "react-app-rewired": "^2.1.5",
+    "svg-inline-loader": "^0.8.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
   }
 }
