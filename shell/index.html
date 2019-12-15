@@ -12,11 +12,12 @@
   <script type="systemjs-importmap">
       {
         "imports": {
-          "react": "http://127.0.0.1:8080/plugin.js"
+          "react": "http://127.0.0.1:8080/plugin.js",
+          "angular": "http://localhost:8081/main.js"
         }
       }
   </script>
-
+  <script src="https://unpkg.com/zone.js"></script>
   <script src='https://unpkg.com/systemjs@6.1.7/dist/system.js'></script>
   <script src='https://unpkg.com/systemjs@6.1.7/dist/extras/amd.js'></script>
   <script src='https://unpkg.com/systemjs@6.1.7/dist/extras/named-exports.js'></script>
@@ -28,6 +29,7 @@
   <!-- Load the application -->
   <script src='./src/single-spa.config.js'></script>
   <div id='react'></div>
+  <div id='angular'></div>
 
   </body>
 </html>

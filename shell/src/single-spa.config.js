@@ -11,4 +11,17 @@ registerApplication(
     location.pathname === "/" || 
     location.pathname.startsWith('/react')
 );
+
+registerApplication(
+  // Name of our single-spa application
+  'angular',
+  // loadingFunction
+  () => { 
+    return System.import("angular") 
+  },
+  // activityFunction
+  (location) => location.pathname === "" || 
+    location.pathname === "/" || 
+    location.pathname.startsWith('/angular')
+);
 start();
