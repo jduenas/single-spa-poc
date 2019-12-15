@@ -10,13 +10,13 @@ const reactLifecycles = singleSpaReact({
   domElementGetter,
 })
 
-export const bootstrap = reactLifecycles.bootstrap;
+export const bootstrap = [reactLifecycles.bootstrap];
 
-export const mount = reactLifecycles.mount;
+export const mount = [reactLifecycles.mount];
 
-export const unmount = reactLifecycles.unmount;
+export const unmount = [reactLifecycles.unmount];
 
-export const unload = reactLifecycles.unmount;
+export const unload = [reactLifecycles.unmount];
 
 function domElementGetter() {
   let el = document.getElementById("navbar");
