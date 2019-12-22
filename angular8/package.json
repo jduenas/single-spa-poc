@@ -9,7 +9,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "host": "http-server ./dist/angular8 --port=8081 --cors",
-    "build:host": "ng build --prod --deploy-url http://localhost:4200/ --output-hashing none && npm run host",
+    "build:host": "SINGLE_SPA=true ng build --configuration=plugin --deploy-url http://localhost:4200/ --output-hashing none && npm run host",
+    "serve:app": "ng build && http-server ./dist/angular8 --port=8081 --cors",
     "serve:": "ng serve --disable-host-check --port 4200 --deploy-url http://localhost:4200/ --live-reload false"
   },
   "private": true,
