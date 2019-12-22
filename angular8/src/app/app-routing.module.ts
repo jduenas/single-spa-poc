@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 
 
 const routes: Routes = [
-  <any>{ path: '**', component: AppComponent, name: "angular" }
+  <any>{ path: 'home', component: AppComponent, name: "angular" }
 ];
 
 const pluginRoute: Routes = [

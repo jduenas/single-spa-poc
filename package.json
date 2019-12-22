@@ -9,10 +9,14 @@
     "install:angular8": "cd angular8 && yarn install",
     "install:react16": "cd react-16 && yarn install",
     "install:shell": "cd shell && yarn install",
+    "build:host:all": "concurrently --kill-others --kill-others-on-fail -p name --names \"build-host-angular8,build-host-react16,build-host-shell\" \"yarn build:host:angular8\" \"yarn build:host:react16\" \"yarn build:host:shell\"",
     "host:all": "concurrently --kill-others --kill-others-on-fail -p name --names \"host-angular8,host-react16,host-shell\" \"yarn host:angular8\" \"yarn host:react16\" \"yarn host:shell\"",
-    "host:shell": "cd shell && yarn build:host",
-    "host:react16": "cd react-16 && yarn build:host",
-    "host:angular8": "cd angular8 && yarn build:host"
+    "build:host:shell": "cd shell && yarn build:host",
+    "build:host:react16": "cd react-16 && yarn build:host",
+    "build:host:angular8": "cd angular8 && yarn build:host",
+    "host:shell": "cd shell && yarn host",
+    "host:react16": "cd react-16 && yarn host",
+    "host:angular8": "cd angular8 && yarn host"
   },
   "devDependencies": {
     "concurrently": "^5.0.2"

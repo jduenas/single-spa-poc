@@ -4,7 +4,7 @@ const singleSpaAngularWebpack = require('single-spa-angular/lib/webpack').defaul
 module.exports = (angularWebpackConfig, options) => {
   if (!process.env.SINGLE_SPA) {
     console.log(`===== Building for Dev Workflow ======`)
-    console.log(JSON.stringify(angularWebpackConfig.entry, null, 2));
+    // console.log(JSON.stringify(angularWebpackConfig.entry, null, 2));
     return angularWebpackConfig;
   }
   
